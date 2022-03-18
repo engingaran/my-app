@@ -1,0 +1,14 @@
+.mainArea
+{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    min-height: 1100px;
+}
+
+.lis
+{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}

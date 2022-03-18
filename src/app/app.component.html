@@ -1,0 +1,96 @@
+<body style="background-color:rgba(21,49,66,255);">
+ <div class="mainArea">
+   <div class="container">
+    <div class="columns is-centered">
+      <div class="box column is-one-third">
+       <h1 class="title has-text-centered">Kayıt Ol</h1>
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    
+            <div class="field">
+              <label class="label">TC KİMLİK NUMARASI <span style="color: red;">*</span></label>
+              <div class="control">
+              <input type="text" class="input" formControlName="tc" placeholder="Tc kimlik numaranızı giriniz." [maxlength]="11">
+              </div>
+            </div>
+
+            <div class="field">
+             <label class="label">İSİM <span style="color: red;">*</span></label>
+              <div class="control">
+              <input class="input" formControlName="name" type="text"  placeholder="İsim giriniz.">
+             </div>
+            </div>
+
+            <div class="field">
+             <label class="label">SOYİSİM <span style="color: red;">*</span></label>
+              <div class="control">
+              <input class="input"  formControlName="surname" type="text" placeholder="Soyisim giriniz.">
+              </div>
+            </div>
+
+            <div class="field">
+             <label class="label">DOĞUM YERİ <span style="color: red;">*</span></label>
+              <div class="control">
+              <input class="input" formControlName="pob" type="text" placeholder="Doğum yerinizi giriniz.">
+              </div>
+            </div>
+
+            <div class="field">
+             <label class="label">E-MAİL <span style="color: red;">*</span></label>
+              <div class="control">
+              <input class="input" formControlName="mail" type="text" placeholder="E-mail adresinizi giriniz.">
+              </div>
+            </div>
+
+            <div class="field">
+             <label class="label">TELEFON NUMARASI <span style="color: red;">*</span></label>
+              <div class="control">
+              <input class="input" formControlName="tel" type="" placeholder="Telefon numaranızı giriniz."  [maxlength]="11">
+             </div>
+            </div>
+
+          <button onclick="location.reload()"  type="submit" class="button is-link is-fullwidth" [disabled]="!myForm.valid" >Kayıt Oluştur</button>
+          </form>
+              <br>
+              <article class="message is-danger">
+                <div class="message-body">
+                 <strong>Yıldızlı alanların doldurulması zorunludur.</strong>
+                </div>
+              </article>
+
+        </div>
+        </div>
+        
+    </div>
+    <div class="lis">
+      <div class="container">
+     <div class="box column is-two-third">
+       <h1 class="title has-text-centered">Kayıt Olan Kullanıcı Listesi</h1>
+        <table class="table table-bordered table-striped">
+          <thead>
+           <tr>
+            <th>ID</th>
+            <th>TC</th>
+            <th>İSİM</th>
+            <th>SOYİSİM</th>
+            <th>DOĞUM YERİ</th>
+            <th>E-MAİL</th>
+            <th>TELEFON NUMARASI</th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr *ngFor="let user of dataSorce">
+           <td><span>{{user.id}}</span></td>
+           <td><span>{{user.tc}}</span></td>
+           <td><span>{{user.name}}</span></td>
+           <td><span>{{user.surname}}</span></td>
+           <td><span>{{user.pob}}</span></td>
+           <td><span>{{user.mail}}</span></td>
+           <td><span>{{user.tel}}</span></td>
+           </tr>
+         </tbody>
+        </table>
+      </div>
+   </div>
+  </div>
+ </div>
+</body>
